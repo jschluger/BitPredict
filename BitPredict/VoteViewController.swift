@@ -73,15 +73,21 @@ class VoteViewController: UIViewController {
 
     // define actions for pressing buttons
     @objc func neutralButtonPressed() {
-        models.votes.append(Vote(sentiment: .NEUTRAL, date: Date()))
+        let vote: Vote = Vote(sentiment: .NEUTRAL, date: Date())
+        restAPI.sendVote(vote)
+        models.votes.append(vote)
     }
     
     @objc func upButtonPressed() {
-        models.votes.append(Vote(sentiment: .UP, date: Date()))
+        let vote: Vote = Vote(sentiment: .UP, date: Date())
+        restAPI.sendVote(vote)
+        models.votes.append(vote)
     }
     
     @objc func downButtonPressed() {
-        models.votes.append(Vote(sentiment: .DOWN, date: Date()))
+        let vote: Vote = Vote(sentiment: .DOWN, date: Date())
+        restAPI.sendVote(vote)
+        models.votes.append(vote)
     }
     
     

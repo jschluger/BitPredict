@@ -7,8 +7,48 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class restAPI: NSObject {
+    
+    static func sendVote(_ vote: Vote) {
+        var urlString: String = "http://bitcoinsentiment.com/index.php?api=1&a=vsp&c=408516840&s=btcusd&v="
+        switch vote.sentiment {
+            case .UP:
+                urlString.append("1")
+            case .NEUTRAL:
+                urlString.append("0")
+            case .DOWN:
+                urlString.append("-1")
+            case .none:
+                print("what1")
+            case .some(_):
+                print("what2")
+        }
+        let url: URL = URL(string: urlString)!
+        Alamofire.request(url)
+    }
+    
+    static func getData() {
+        let url = URL(string: "http://bitcoinsentiment.com/index.php?api=1&a=spj&s=btcusd&p=d&b=0&e=9999999999999")!
+        
+        Alamofire.request(url).validate().responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                let jsonArray = json.arrayValue
+                print(jsonArray.last!.arrayValue[1], " voted up today")
+                print(jsonArray.last!.arrayValue[2], " voted neutral today")
+                print(jsonArray.last!.arrayValue[3], " voted down today")
+                print("-------------------")
+                
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     static func getAboutMessage() -> String {
         return """
