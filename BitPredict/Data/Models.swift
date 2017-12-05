@@ -12,7 +12,4 @@ class Models: NSObject {
     
     var votes: [Vote] = []
     
-    
-    
-    
 }

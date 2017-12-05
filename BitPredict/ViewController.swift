@@ -92,7 +92,9 @@ class ViewController: UIViewController {
     }
     
     @objc func pastPrefsButtonPressed() {
-         navigationController?.pushViewController(PastPrefsViewController(), animated: true)
+        let vc: PastPrefsViewController = PastPrefsViewController()
+        vc.models = models
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
