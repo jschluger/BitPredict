@@ -23,6 +23,7 @@ class ResultsViewController: UIViewController {
         title = "Results"
         chart = LineChartView(frame: view.frame)
         chart.noDataText = "Data loading ..."
+
         restAPI.getData { data in
             self.fillChart(data)
         }
@@ -56,6 +57,7 @@ class ResultsViewController: UIViewController {
         
         let lineChartData: LineChartData = LineChartData(dataSets: [upDataSet, neutralDataSet, downDataSet])
         chart.data = lineChartData
+        chart.animate(xAxisDuration: 5.0)
     }
     
     
