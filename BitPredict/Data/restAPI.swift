@@ -31,7 +31,7 @@ class restAPI: NSObject {
         Alamofire.request(url)
     }
     
-    static func getData() {
+    static func getData(completion: @escaping ([JSON]) -> Void) {
         let url = URL(string: "http://bitcoinsentiment.com/index.php?api=1&a=spj&s=btcusd&p=d&b=0&e=9999999999999")!
         
         Alamofire.request(url).validate().responseJSON { response in
@@ -43,7 +43,7 @@ class restAPI: NSObject {
                 print(jsonArray.last!.arrayValue[2], " voted neutral today")
                 print(jsonArray.last!.arrayValue[3], " voted down today")
                 print("-------------------")
-                
+                completion(jsonArray)
 
             case .failure(let error):
                 print(error)

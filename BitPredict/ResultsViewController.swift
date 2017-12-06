@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
 
 class ResultsViewController: UIViewController {
@@ -20,23 +21,40 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         title = "Results"
-        restAPI.getData()
         chart = LineChartView(frame: view.frame)
-        fillChart()
+        chart.noDataText = "Data loading ..."
+        restAPI.getData { data in
+            self.fillChart(data)
+        }
         view.addSubview(chart)
     }
     
-    func fillChart() {
-        let chartDataEntryValues: [ChartDataEntry] = [
-            ChartDataEntry(x: 40, y: 0),
-            ChartDataEntry(x: 10, y: 100),
-            ChartDataEntry(x: 50, y: 50),
-            ChartDataEntry(x: 60, y: 60),
-            ChartDataEntry(x: 40, y: 4)
-        ]
+    func fillChart(_ data: [JSON]) {
+        var upDataEntryValues: [ChartDataEntry] = []
+        var downDataEntryValues: [ChartDataEntry] = []
+        var neutralDataEntryValues: [ChartDataEntry] = []
 
-        let dataSet: LineChartDataSet = LineChartDataSet(values: chartDataEntryValues, label: "Test")
-        let lineChartData: LineChartData = LineChartData(dataSet: dataSet)
+        for i in 0..<data.count {
+            var dataPoint: [JSON] = data[i].arrayValue
+            let dailyVotes: Double = dataPoint[1].doubleValue + dataPoint[2].doubleValue + dataPoint[3].doubleValue
+            upDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[1].doubleValue / dailyVotes))
+            downDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[3].doubleValue / dailyVotes))
+            neutralDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[2].doubleValue / dailyVotes))
+        }
+
+        let upDataSet: LineChartDataSet = LineChartDataSet(values: upDataEntryValues, label: "Up")
+        upDataSet.circleColors = [.green] //Array(repeating: .green, count: data.count)
+        upDataSet.colors = [.green]
+        
+        let downDataSet: LineChartDataSet = LineChartDataSet(values: downDataEntryValues, label: "Down")
+        downDataSet.circleColors = [.red] //Array(repeating: .red, count: data.count)
+        downDataSet.colors = [.red]
+        
+        let neutralDataSet: LineChartDataSet = LineChartDataSet(values: neutralDataEntryValues, label: "Neutral")
+        neutralDataSet.circleColors = [.lightGray]
+        neutralDataSet.colors = [.lightGray]
+        
+        let lineChartData: LineChartData = LineChartData(dataSets: [upDataSet, neutralDataSet, downDataSet])
         chart.data = lineChartData
     }
     
