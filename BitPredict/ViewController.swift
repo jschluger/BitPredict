@@ -88,7 +88,9 @@ class ViewController: UIViewController {
     }
     
     @objc func resultsButtonPressed() {
-        navigationController?.pushViewController(ResultsViewController(), animated: true)
+        let vc: ResultsViewController = ResultsViewController()
+        vc.models = models
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pastPrefsButtonPressed() {

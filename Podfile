@@ -6,6 +6,7 @@ target 'BitPredict' do
   use_frameworks!
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Charts'
   # Pods for BitPredict
 
 end
