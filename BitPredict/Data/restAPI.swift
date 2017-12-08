@@ -31,18 +31,22 @@ class restAPI: NSObject {
         Alamofire.request(url)
     }
     
-    static func getData(completion: @escaping ([JSON]) -> Void) {
-        let url = URL(string: "http://bitcoinsentiment.com/index.php?api=1&a=spj&s=btcusd&p=d&b=0&e=9999999999999")!
+    static func getData(startDate: Date, endDate: Date, completion: @escaping ([JSON]) -> Void) {
+        //print(startDate.timeIntervalSince1970.magnitude, endDate.timeIntervalSince1970.magnitude)
+        let s: String = String(Int(startDate.timeIntervalSince1970.magnitude * 1000))
+        let e: String = String(Int(endDate.timeIntervalSince1970.magnitude * 1000))
+  
         
-        Alamofire.request(url).validate().responseJSON { response in
+        let url = URL(string: "http://bitcoinsentiment.com/index.php?api=1&a=spj&s=btcusd&p=d&b=" + s + "&e=" + e)!
+ 
+         Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success(let data):
                 let json = JSON(data)
                 let jsonArray = json.arrayValue
-                print(jsonArray.last!.arrayValue[1], " voted up today")
-                print(jsonArray.last!.arrayValue[2], " voted neutral today")
-                print(jsonArray.last!.arrayValue[3], " voted down today")
-                print("-------------------")
+                print("\tnumber of items recieved: ", jsonArray.count)
+                print("sent start: ", s, "\tsent end: ", e)
+                //print(" got start: ", jsonArray.first?.arrayValue.first?.intValue, "\t got end: ", jsonArray.last?.arrayValue.first?.intValue)
                 completion(jsonArray)
 
             case .failure(let error):

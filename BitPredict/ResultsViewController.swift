@@ -14,6 +14,8 @@ import SwiftyJSON
 class ResultsViewController: UIViewController {
 
     var models: Models!
+    var startDate: Date!
+    var endDate: Date!
     
     var chart: LineChartView!
     
@@ -24,7 +26,7 @@ class ResultsViewController: UIViewController {
         chart = LineChartView(frame: view.frame)
         chart.noDataText = "Data loading ..."
 
-        restAPI.getData { data in
+        restAPI.getData(startDate: startDate, endDate: endDate) { data in
             self.fillChart(data)
         }
         view.addSubview(chart)
