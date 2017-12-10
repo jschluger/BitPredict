@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class VoteViewController: UIViewController {
 
@@ -73,21 +74,60 @@ class VoteViewController: UIViewController {
 
     // define actions for pressing buttons
     @objc func neutralButtonPressed() {
-        let vote: Vote = Vote(sentiment: .NEUTRAL, date: Date())
+        let date: Date = Date()
+        let vote: Vote = Vote(sentiment: .NEUTRAL, date: date)
         restAPI.sendVote(vote)
-        models.votes.append(vote)
+        let calandar = Calendar.current
+        let today = calandar.component(.day, from: date)
+        
+        var lastDay: Int? = -1
+        if (models.votes.count > 0) {
+            lastDay = calandar.component(.day, from: (models.votes.last?.date)!)
+        }
+        if (today != lastDay) {
+            models.votes.append(vote)
+        }
+        else {
+            models.votes[models.votes.count - 1] = vote
+        }
     }
     
     @objc func upButtonPressed() {
-        let vote: Vote = Vote(sentiment: .UP, date: Date())
+        let date: Date = Date()
+        let vote: Vote = Vote(sentiment: .UP, date: date)
         restAPI.sendVote(vote)
-        models.votes.append(vote)
+        let calandar = Calendar.current
+        let today = calandar.component(.day, from: date)
+        
+        var lastDay: Int? = -1
+        if (models.votes.count > 0) {
+            lastDay = calandar.component(.day, from: (models.votes.last?.date)!)
+        }
+        if (today != lastDay) {
+            models.votes.append(vote)
+        }
+        else {
+            models.votes[models.votes.count - 1] = vote
+        }
     }
     
     @objc func downButtonPressed() {
-        let vote: Vote = Vote(sentiment: .DOWN, date: Date())
+        let date: Date = Date()
+        let vote: Vote = Vote(sentiment: .DOWN, date: date)
         restAPI.sendVote(vote)
-        models.votes.append(vote)
+        let calandar = Calendar.current
+        let today = calandar.component(.day, from: date)
+        
+        var lastDay: Int? = -1
+        if (models.votes.count > 0) {
+            lastDay = calandar.component(.day, from: (models.votes.last?.date)!)
+        }
+        if (today != lastDay) {
+            models.votes.append(vote)
+        }
+        else {
+            models.votes[models.votes.count - 1] = vote
+        }
     }
     
     
