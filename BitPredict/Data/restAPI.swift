@@ -10,10 +10,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Charts
+import CoreData
 
 class restAPI: NSObject {
     
-    static func sendVote(_ vote: Vote) {
+    static func sendandSaveVote(_ vote: Vote, models: Models) {
+        
+        // Sending Vote
         var urlString: String = "http://bitcoinsentiment.com/index.php?api=1&a=vsp&c=408516840&s=btcusd&v="
         switch vote.sentiment {
             case .UP:
@@ -29,6 +32,32 @@ class restAPI: NSObject {
         }
         let url: URL = URL(string: urlString)!
         Alamofire.request(url)
+        
+        // Saving vote
+        
+        
+        /*let calandar = Calendar.current
+        let today = calandar.component(.day, from: date)
+        
+        var lastDay: Int? = -1
+        if (1 > 0) {
+            lastDay = calandar.component(.day, from: (models.votesData.last?.date)!)
+        }*/
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "VoteData", in: managedContext)!
+        let v = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+        v.setValue(vote.date, forKey: "date")
+        v.setValue(vote.sentiment.hashValue, forKey: "pref")
+        do {
+            try managedContext.save()
+            models.votesData.append(v)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+            
     }
     
     static func getData(startDate: Date, endDate: Date, completion: @escaping ([JSON]) -> Void) {

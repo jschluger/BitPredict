@@ -7,9 +7,8 @@
 //
 
 import Foundation
+import CoreData
 
 class Models: NSObject {
-    
-    var votes: [Vote]!
-    
+    var votesData: [NSManagedObject]!
 }

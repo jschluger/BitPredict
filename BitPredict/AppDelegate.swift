@@ -26,35 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let rootVC = ViewController()
         rootVC.models = models
-        models.votes = []
         
-        var votes: [NSManagedObject] = []
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "VoteData")
         do {
-            votes = try managedContext.fetch(fetchRequest)
+            models.votesData = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
-            votes = []
-        }
-        print("\tvotes.count: ", votes.count)
-        if votes.count > 0 {
-            print("\tfirst element of votes: ", votes[0])
-        }
-        for i: Int in 0..<votes.count {
-            var vote: Vote!
-            let date: Date = votes[i].value(forKey: "date") as! Date
-            switch votes[i].value(forKey: "pref") as! Int {
-            case 0:
-                vote = Vote(sentiment: .UP, date: date)
-            case 1:
-                vote = Vote(sentiment: .DOWN, date: date)
-            case 2:
-                vote = Vote(sentiment: .NEUTRAL, date: date)
-            default:
-                print("sentiment was wrong")
-            }
-            models.votes.append(vote)
+            models.votesData = []
         }
         
         mainNavigationController = UINavigationController(rootViewController: rootVC)
@@ -71,24 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        var votes: [NSManagedObject] = []
-        let context = persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "VoteData", in: context)!
-        
-        for vote in models.votes {
-            let v = NSManagedObject(entity: entity, insertInto: context)
-            v.setValue(vote.date, forKey: "date")
-            v.setValue(vote.sentiment.hashValue, forKey: "pref")
-            do {
-                try context.save()
-                votes.append(v)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-            
-        }
-       }
+   }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.

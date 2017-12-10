@@ -40,12 +40,12 @@ class PastPrefsViewController: UIViewController, UICollectionViewDataSource, UIC
     // MARK: Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.votes.count
+        return models.votesData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PastPrefCollectionViewCell", for: indexPath) as! PastPrefCollectionViewCell
-        cell.setUpWithVote(models.votes[models.votes.count - indexPath.row - 1])
+        cell.setUpWithVote(Vote(managedObject: models.votesData[models.votesData.count - indexPath.row - 1]))
         return cell
     }
     
