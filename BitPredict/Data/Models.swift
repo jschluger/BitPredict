@@ -10,6 +10,6 @@ import Foundation
 
 class Models: NSObject {
     
-    var votes: [Vote] = []
+    var votes: [Vote]!
     
 }

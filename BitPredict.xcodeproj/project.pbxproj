@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630F7A421FDDBF0300C7C114 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 630F7A401FDDBF0300C7C114 /* Model.xcdatamodeld */; };
+		630F7A451FDDC9FB00C7C114 /* BitPredict.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 630F7A431FDDC9FB00C7C114 /* BitPredict.xcdatamodeld */; };
 		63158D1F1FCF61DD0080914A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63158D1E1FCF61DD0080914A /* AppDelegate.swift */; };
 		63158D211FCF61DD0080914A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63158D201FCF61DD0080914A /* ViewController.swift */; };
 		63158D261FCF61DD0080914A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63158D251FCF61DD0080914A /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 		06B2A40DD47C5E2AC8A92CD9 /* Pods-BitPredict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitPredict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitPredict/Pods-BitPredict.debug.xcconfig"; sourceTree = "<group>"; };
 		2499477754EA52DCD708761F /* Pods_BitPredict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitPredict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C443922F7C1879738B64F24 /* Pods-BitPredict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitPredict.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitPredict/Pods-BitPredict.release.xcconfig"; sourceTree = "<group>"; };
-		630F7A411FDDBF0300C7C114 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		630F7A441FDDC9FB00C7C114 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		63158D1B1FCF61DD0080914A /* BitPredict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitPredict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63158D1E1FCF61DD0080914A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63158D201FCF61DD0080914A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,12 +87,12 @@
 			children = (
 				636C80DA1FD2004F007D63CF /* Data */,
 				63158D1E1FCF61DD0080914A /* AppDelegate.swift */,
+				630F7A431FDDC9FB00C7C114 /* BitPredict.xcdatamodeld */,
 				63158D201FCF61DD0080914A /* ViewController.swift */,
 				63158D301FD0AE2D0080914A /* VoteViewController.swift */,
 				63B4479F1FDB33CC00718A28 /* PreResultsViewController.swift */,
 				63158D321FD0AE350080914A /* ResultsViewController.swift */,
 				63158D341FD0AE440080914A /* PastPrefsViewController.swift */,
-				630F7A401FDDBF0300C7C114 /* Model.xcdatamodeld */,
 				636C80DB1FD60821007D63CF /* PastPrefCollectionViewCell.swift */,
 				63158D251FCF61DD0080914A /* Assets.xcassets */,
 				63158D271FCF61DD0080914A /* LaunchScreen.storyboard */,
@@ -258,10 +258,10 @@
 				63158D371FD0B1660080914A /* restAPI.swift in Sources */,
 				63158D391FD1FCFB0080914A /* Vote.swift in Sources */,
 				63158D1F1FCF61DD0080914A /* AppDelegate.swift in Sources */,
+				630F7A451FDDC9FB00C7C114 /* BitPredict.xcdatamodeld in Sources */,
 				63158D3B1FD1FE9A0080914A /* Models.swift in Sources */,
 				63B447A01FDB33CC00718A28 /* PreResultsViewController.swift in Sources */,
 				63158D331FD0AE350080914A /* ResultsViewController.swift in Sources */,
-				630F7A421FDDBF0300C7C114 /* Model.xcdatamodeld in Sources */,
 				63158D351FD0AE440080914A /* PastPrefsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,13 +443,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		630F7A401FDDBF0300C7C114 /* Model.xcdatamodeld */ = {
+		630F7A431FDDC9FB00C7C114 /* BitPredict.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				630F7A411FDDBF0300C7C114 /* Model.xcdatamodel */,
+				630F7A441FDDC9FB00C7C114 /* Data.xcdatamodel */,
 			);
-			currentVersion = 630F7A411FDDBF0300C7C114 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 630F7A441FDDC9FB00C7C114 /* Data.xcdatamodel */;
+			path = BitPredict.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

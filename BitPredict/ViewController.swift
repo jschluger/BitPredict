@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let models: Models! = Models()
+    var models: Models!
     
     let padding: CGFloat = 25.0
     var navHeight: CGFloat!
