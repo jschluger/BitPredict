@@ -35,27 +35,35 @@ class restAPI: NSObject {
         
         // Saving vote
         
-        
-        /*let calandar = Calendar.current
-        let today = calandar.component(.day, from: date)
-        
-        var lastDay: Int? = -1
-        if (1 > 0) {
-            lastDay = calandar.component(.day, from: (models.votesData.last?.date)!)
-        }*/
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "VoteData", in: managedContext)!
-        let v = NSManagedObject(entity: entity, insertInto: managedContext)
-            
-        v.setValue(vote.date, forKey: "date")
-        v.setValue(vote.sentiment.hashValue, forKey: "pref")
-        do {
-            try managedContext.save()
-            models.votesData.append(v)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        
+        let calandar = Calendar.current
+        let today = calandar.component(.day, from: vote.date)
+        var lastDay: Int? = -1
+        if (models.votesData.count > 0) {
+            lastDay = calandar.component(.day, from: (models.votesData.last?.value(forKey: "date") as! Date))
+        }
+        
+        if (lastDay != today) {
+            let v = NSManagedObject(entity: entity, insertInto: managedContext)
+            v.setValue(vote.date, forKey: "date")
+            v.setValue(vote.sentiment.hashValue, forKey: "pref")
+            do {
+                try managedContext.save()
+                models.votesData.append(v)
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        else {
+            models.votesData.last?.setValue(vote.sentiment.hashValue, forKey: "pref")
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
             
     }
