@@ -19,7 +19,7 @@ class PastPrefCollectionViewCell: UICollectionViewCell {
         }
         label = UILabel(frame: frame)
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "MM/dd/yyyy"
         label.text = "  " + formatter.string(from: vote.date) + " — "
         switch vote.sentiment {
             case .UP:

@@ -13,7 +13,6 @@ import SwiftyJSON
 
 class ResultsViewController: UIViewController {
 
-    var models: Models!
     var startDate: Date!
     var endDate: Date!
     
@@ -42,7 +41,7 @@ class ResultsViewController: UIViewController {
             let dailyVotes: Double = dataPoint[1].doubleValue + dataPoint[2].doubleValue + dataPoint[3].doubleValue
             upDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[1].doubleValue / dailyVotes))
             downDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[3].doubleValue / dailyVotes))
-            neutralDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[2].doubleValue / dailyVotes))
+            neutralDataEntryValues.append(ChartDataEntry(x: Double(i), y: 100 * dataPoint[2].doubleValue / dailyVotes, data: "Test" as AnyObject))
         }
 
         let upDataSet: LineChartDataSet = LineChartDataSet(values: upDataEntryValues, label: "Up")
@@ -59,6 +58,8 @@ class ResultsViewController: UIViewController {
         
         let lineChartData: LineChartData = LineChartData(dataSets: [upDataSet, neutralDataSet, downDataSet])
         chart.data = lineChartData
+        chart.scaleYEnabled = false
+        chart.chartDescription?.text = "% of votes for each option on each day"
         chart.animate(xAxisDuration: 5.0)
     }
     

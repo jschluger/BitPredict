@@ -19,6 +19,7 @@
 		63158D391FD1FCFB0080914A /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63158D381FD1FCFB0080914A /* Vote.swift */; };
 		63158D3B1FD1FE9A0080914A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63158D3A1FD1FE9A0080914A /* Models.swift */; };
 		636C80DC1FD60821007D63CF /* PastPrefCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C80DB1FD60821007D63CF /* PastPrefCollectionViewCell.swift */; };
+		637F8A061FDF2F0D00999BF4 /* OneResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F8A051FDF2F0D00999BF4 /* OneResultViewController.swift */; };
 		63B447A01FDB33CC00718A28 /* PreResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B4479F1FDB33CC00718A28 /* PreResultsViewController.swift */; };
 		F48C76AE64B291BFF8611998 /* Pods_BitPredict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2499477754EA52DCD708761F /* Pods_BitPredict.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		63158D381FD1FCFB0080914A /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		63158D3A1FD1FE9A0080914A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		636C80DB1FD60821007D63CF /* PastPrefCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastPrefCollectionViewCell.swift; sourceTree = "<group>"; };
+		637F8A051FDF2F0D00999BF4 /* OneResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneResultViewController.swift; sourceTree = "<group>"; };
 		63B4479F1FDB33CC00718A28 /* PreResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				63158D201FCF61DD0080914A /* ViewController.swift */,
 				63158D301FD0AE2D0080914A /* VoteViewController.swift */,
 				63B4479F1FDB33CC00718A28 /* PreResultsViewController.swift */,
+				637F8A051FDF2F0D00999BF4 /* OneResultViewController.swift */,
 				63158D321FD0AE350080914A /* ResultsViewController.swift */,
 				63158D341FD0AE440080914A /* PastPrefsViewController.swift */,
 				636C80DB1FD60821007D63CF /* PastPrefCollectionViewCell.swift */,
@@ -260,6 +263,7 @@
 				63158D1F1FCF61DD0080914A /* AppDelegate.swift in Sources */,
 				630F7A451FDDC9FB00C7C114 /* BitPredict.xcdatamodeld in Sources */,
 				63158D3B1FD1FE9A0080914A /* Models.swift in Sources */,
+				637F8A061FDF2F0D00999BF4 /* OneResultViewController.swift in Sources */,
 				63B447A01FDB33CC00718A28 /* PreResultsViewController.swift in Sources */,
 				63158D331FD0AE350080914A /* ResultsViewController.swift in Sources */,
 				63158D351FD0AE440080914A /* PastPrefsViewController.swift in Sources */,

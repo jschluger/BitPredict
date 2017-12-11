@@ -75,6 +75,7 @@ class restAPI: NSObject {
   
         
         let url = URL(string: "http://bitcoinsentiment.com/index.php?api=1&a=spj&s=btcusd&p=d&b=" + s + "&e=" + e)!
+        print("requesting ", url)
  
          Alamofire.request(url).validate().responseJSON { response in
             switch response.result {

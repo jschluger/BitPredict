@@ -21,6 +21,7 @@ class PreResultsViewController: UIViewController {
     var endLabel: UILabel!
     var todayButton: UIButton!
     var resultsButton: UIButton!
+    var oneResultButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class PreResultsViewController: UIViewController {
 
         // layout the view
         startLabel = UILabel(frame: CGRect(x: padding, y: padding + navHeight, width: 10, height: 10))
-        startLabel.text = "Start date: "
+        startLabel.text = "Start Date: "
         startLabel.sizeToFit()
         view.addSubview(startLabel)
         
@@ -46,7 +47,7 @@ class PreResultsViewController: UIViewController {
         view.addSubview(startDatePicker)
         
         endLabel = UILabel(frame: CGRect(x: padding, y: 3*padding + startDatePicker.frame.maxY, width: 10, height: 10))
-        endLabel.text = "End date: "
+        endLabel.text = "End Date: "
         endLabel.sizeToFit()
         view.addSubview(endLabel)
         
@@ -65,14 +66,21 @@ class PreResultsViewController: UIViewController {
         view.addSubview(endDatePicker)
         
         resultsButton = UIButton(type: .roundedRect)
-        resultsButton.frame = CGRect(x: 10, y: endDatePicker.frame.maxY + padding, width: 10, height: 10)
-        resultsButton.setTitle(" See results ", for: .normal)
+        resultsButton.frame = CGRect(x: padding, y: endDatePicker.frame.maxY + padding, width: 10, height: 10)
+        resultsButton.setTitle(" See results in date range ", for: .normal)
         resultsButton.titleLabel?.font = resultsButton.titleLabel?.font.withSize(18)
         resultsButton.sizeToFit()
-        resultsButton.center.x = view.center.x
         resultsButton.addTarget(self, action: #selector(resultsButtonPressed), for: .touchUpInside)
         view.addSubview(resultsButton)
         
+        oneResultButton = UIButton(type: .roundedRect)
+        oneResultButton.frame = CGRect(x: padding, y: resultsButton.frame.maxY + padding, width: 10, height: 10)
+        oneResultButton.setTitle(" See results on End Date ", for: .normal)
+        oneResultButton.titleLabel?.font = oneResultButton.titleLabel?.font.withSize(18)
+        oneResultButton.setTitleColor(.brown, for: .normal)
+        oneResultButton.sizeToFit()
+        oneResultButton.addTarget(self, action: #selector(oneResultButtonPressed), for: .touchUpInside)
+        view.addSubview(oneResultButton)
         
     }
 
@@ -81,9 +89,14 @@ class PreResultsViewController: UIViewController {
     
     @objc func resultsButtonPressed() {
         let vc: ResultsViewController = ResultsViewController()
-        vc.models = models
         vc.startDate = startDatePicker.date
         vc.endDate = endDatePicker.date
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func oneResultButtonPressed() {
+        let vc: OneResultViewController = OneResultViewController()
+        vc.date = endDatePicker.date
         navigationController?.pushViewController(vc, animated: true)
     }
     
