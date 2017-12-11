@@ -16,4 +16,4 @@ To run the project, when you first clone the repo run `$ pod update` to download
 
 ## Thanks
 - Thanks to [bitcoinsentiment](http://bitcoinsentiment.com/) for providing the API.
-- THanks to the Cornell AppDev Team for the help developing this project.
+- Thanks to the Cornell AppDev Team for the help developing this project.
