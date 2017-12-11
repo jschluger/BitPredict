@@ -95,13 +95,13 @@ class restAPI: NSObject {
     
     static func getAboutMessage() -> String {
         return """
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis interdum nunc, quis luctus dolor molestie quis. Etiam sapien elit, auctor tincidunt quam sit amet, porta iaculis leo. Curabitur ultrices, ex porta dapibus tincidunt, augue mauris pharetra eros, sed rhoncus eros orci non diam. Nullam molestie eget lorem ut facilisis. Mauris non est id justo dignissim cursus eu vitae enim. Nulla id dui elementum, accumsan quam sed, semper eros. Integer a convallis erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus eu leo dignissim ante maximus rhoncus. Suspendisse at pulvinar enim. Integer massa lorem, tincidunt eu euismod nec, vestibulum id dolor. Morbi quis maximus ante. Phasellus et orci tincidunt tellus hendrerit congue. Nulla eget pharetra diam. In in accumsan urna. Aenean convallis sem sed venenatis sagittis.
+        BitCoin is currently as as hot! as ever, so use BitPredict (TM) to help you predict the market and cash in.
         
-        Aliquam eu ex eu mi gravida tincidunt. Morbi elementum auctor consectetur. Integer metus libero, vehicula nec efficitur egestas, venenatis vitae odio. Duis non ex non est auctor dapibus at nec orci. Vestibulum tincidunt sit amet tellus eu imperdiet. Nulla facilisi. Pellentesque porttitor tristique magna, efficitur venenatis mi hendrerit eget. Curabitur ultricies sodales eros vitae congue. Curabitur luctus ex sapien, nec tristique mauris laoreet ut. Nullam consectetur ultrices nulla at egestas. Donec tempus augue nulla, vel venenatis quam consequat eget. Ut sodales metus eu dolor volutpat iaculis. Sed vel turpis ex. Phasellus ut nunc ut tortor consectetur blandit quis eu felis. Vivamus consectetur pretium eros vitae ultrices.
+        Navagate to the Vote tab to weigh in on what you think BitCoin will do in the next six months. Then, move over to the Past Prefrences tab to see a record of your past thoughts about the future of BitCoin. Keep in mind that you can only vote once per day, so if you vote multiple times we will just overwrite your previous vote!
         
-        Morbi tempus quam mauris, at facilisis tortor volutpat in. Proin volutpat mauris sit amet fringilla ornare. Fusce vel ultrices nulla. Sed sagittis velit magna, eget placerat velit volutpat sit amet. Vestibulum sed ex euismod, feugiat arcu sed, rhoncus dolor. Fusce laoreet commodo tortor, eu mattis eros ornare quis. Phasellus volutpat urna et consectetur mattis.
+        Next, navagate to the Results tab to unlock the collective knowledge of BitPredict users! View past data on the group opinion of bitcoin as a graph, or look at data for a specific day!
         
-        Duis non lorem ante. Nam tempus nulla ac ullamcorper semper. Donec fermentum ex et libero tincidunt, a sollicitudin nunc efficitur. Ut consectetur a nisi id vulputate. Etiam ut efficitur lectus, at egestas elit. Sed vel sem velit. Fusce laoreet, urna eu pulvinar luctus, sapien massa lobortis purus, eget tristique elit purus sit amet mauris. Praesent ac tortor ex. Maecenas dapibus sapien mauris, eu fermentum dui semper sit amet. Maecenas congue auctor dapibus. Nullam porttitor orci erat, et faucibus turpis accumsan non. Etiam in lacinia metus. Nullam sagittis ante magna, non bibendum nulla hendrerit ut.
+        Donate a few BitCoins to the BitPredict team when it helps you get rich!
         """
     }
     

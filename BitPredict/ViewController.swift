@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         
         aboutTextView = UITextView(frame: CGRect(x: padding, y: aboutLabel.frame.maxY + (padding/2), width: view.frame.width - 2*padding, height: view.frame.maxY - (aboutLabel.frame.maxY + 1.5*padding)))
         aboutTextView.isEditable = false
+        aboutTextView.font = aboutTextView.font?.withSize(17)
         aboutTextView.text = restAPI.getAboutMessage()
         view.addSubview(aboutTextView)
         
